@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<style>
+        /* si h1 esta dentro de .hero toma el colo #fe0 */
+        /* si h1 esta dentro de .hero2 toma el color lightgreen */
+		h1 {
+			color: var(--main-color, orange);
+		}
+
+		.hero {
+			--main-color: #fe0;
+		}
+
+		.hero2 {
+			--main-color: lightgreen;
+		}
+	</style>
+	<body>
+        <div class="hero">
+            <!-- color de h1 es #fe0 -->
+            <h1>hola</h1>
+        </div>
+        <div class="hero2">
+            <!-- color de h1 es lightgreen -->
+            <h1>hola</h1>
+        </div>
+    </body>
+</html>

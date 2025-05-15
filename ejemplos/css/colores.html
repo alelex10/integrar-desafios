@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		{{!-- Aplica la clase .colors --}}
+		<p class="colors">Este texto usa la clase colors.</p>
+
+		<h2> Aplica la clase .hsl-example </h2>
+		<div class="hsl-example">Este div usa la clase hsl-example.</div>
+
+        <h2>Aplica la clase .gradient normal</h2>
+        <div class="gradient">Este div usa la clase gradient normal.</div>
+
+        <h2>Aplica la clase .gradiant-oklch</h2>
+        <ul>
+            <li>es mucho mas armonioso la tracicion de colores</li>
+        </ul>
+        <div class="gradiant-oklch">Este div usa la clase gradiant-oklch.</div>
+
+	</body>
+</html>
+<style>
+	/* Propiedades tradicionales */
+	.colors {
+		color: blue; /* color nombrado - no recomendada */
+		background: #ff0000; /* color hexadecimal */
+		border-color: rgb(0, 255, 0); /* color con valores RGB */
+		outline-color: rgba(0, 0, 255, 0.5); /*  color con valores RGBA - incluye transparencia */
+	}
+
+	/* Color HSL (Hue, Saturation, Lightness) */
+	.hsl-example {
+		background: hsl(180, 50%, 50%);
+		color: hsla(240, 100%, 50%, 0.75);
+	}
+
+	/* Colores con formatos modernos */
+
+
+    div {
+        width: 400px;
+        height: 100px;
+    }	
+
+    .gradient {
+        background: linear-gradient(to right, red, blue);
+    }
+
+    .gradiant-oklch {
+        background: linear-gradient(to right, hsl(0, 70%, 50%), hsl(180, 70%, 50%));
+    }
+</style>

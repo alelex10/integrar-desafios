@@ -1,26 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h1>Hola soy, Alejandro verduguez</h1>
-            <p>Soy un desarrollador web, programo y soluciono. Siempre aprendiendo algo nuevo.</p>
-        </section>
-    </main>
-    
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li><a href="#sobre-mi">sobre-mi</a></li>
+					<li><a href="#conocimientos">conocimientos</a></li>
+					<li><a href="#idiomas">proyectos</a></li>
+					<li><a href="#contacto">contacto</a></li>
+					<li><a href="#educacion-experiencia">estudios</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<span>
+				<!-- * breve descripción de ustedes -->
+				<section id="sobre-mi">
+					<h1>Sobre mi</h1>
+					<p>
+						Soy un profesional con sólida formación en programación Backend Java, apasionado por la tecnología y el
+						desarrollo de software. Destaco por mi competitividad, trabajo en equipo y dedicación en encontrar
+						soluciones innovadoras.
+					</p>
+				</section>
+				<!-- conocimientos actuales en el área IT -->
+				<section id="conocimientos">
+					<h2>Conocimientos actuales en el área IT</h2>
+					<ul>
+						<li>HTML</li>
+						<li>CSS</li>
+						<li>JavaScript</li>
+						<li>TypeScript</li>
+						<li>GitHub</li>
+						<li>React</li>
+						<li>Oracle Clound</li>
+						<li>SQL</li>
+						<li>Java</li>
+						<li>SpringBoot</li>
+						<li>Git</li>
+						<li>Soporte IT</li>
+					</ul>
+				</section>
+			</span>
+			<!-- manejo de idiomas -->
+			<section id="idiomas">
+				<h2>Idiomas</h2>
+				<ul>
+					<li>Español</li>
+					<li>A duras penas inglés XD</li>
+				</ul>
+			</section>
+			<!-- educación y experiencia laboral -->
+			<section id="educacion-experiencia">
+				<article>
+					<h2>Experiencia laboral</h2>
+					<p>ninguna</p>
+				</article>
+				<article>
+					<ul>
+						<li>
+							<h2>Educación</h2>
+							<h3>universidad 2018-2022</h3>
+							<p>primer año incompleto</p>
+						</li>
+						<li>
+							<h2>Cursos</h2>
+							<ol>
+								<li>
+									<h3>Alura latam 2023</h3>
+									<p>curso de java, sql, springboot, oracle clound</p>
+								</li>
+								<li>
+									<h3>Junior Archivement 2023</h3>
+									<p>curso de soporte IT</p>
+								</li>
+								<li>
+									<h3>Codo a Codo 2022</h3>
+									<p>curso de java</p>
+								</li>
+								<li>
+									<h3>Codo a Codo 2021</h3>
+									<p>curso de python</p>
+								</li>
+								<li>
+									<h3>Aprender programando 2017</h3>
+									<p>cusos de programación inicial html y css</p>
+								</li>
+							</ol>
+						</li>
+						<li>
+							<h3>secundario 2013-2018</h3>
+							<p>Bachillerato en Economia y administracion</p>
+						</li>
+					</ul>
+				</article>
+			</section>
+			<!-- formulario de contacto con los campos: Nombre, Asunto y Mensaje. -->
+			<section id="contacto">
+				<h2>Contacto</h2>
+				<form>
+					<label for="name">Nombre:</label>
+					<input type="text" id="name" name="name" required />
+					<label for="subject">Asunto:</label>
+					<input type="text" id="subject" name="subject" required />
+					<label for="message">Mensaje:</label>
+					<textarea id="message" name="message" required></textarea>
+					<button type="submit">Enviar</button>
+				</form>
+			</section>
+		</main>
+	</body>
 </html>
