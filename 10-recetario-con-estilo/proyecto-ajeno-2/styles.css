@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 3px;
+    padding: 3px;
+    background-color: var(--background-color);
+}
+:root {
+    --primary-color: oklch(0.48 0.1825 29.65);
+    --secondary-color: oklch(0.96 0.0328 107);
+    --tertiary-color: oklch(0.46 0.0529 55.08);
+    --background-color: oklch(0.97 0.01 80);
+    --font-main: "Inter", serif;
+}
+html {
+    font-size: 16px;
+    font-family: var(--font-main);
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    font-family: var(--font-main);
+    --background-color: oklch(0.97 0.01 80);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+.titulo {
+    color: var(--primary-color);
+    font-size: 75px;
+    font-style: normal;
+    background-color: var(--secondary-color);
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    border: 2px solid var(--primary-color);
+}
+
+.pie {
+    background-color: var(--secondary-color);
+    text-align: center;
+}
+
+.glaseado {
+    color: var(--tertiary-color);
+    font-weight: 600;
+}
+
+.masa {
+    color: var(--tertiary-color);
+    font-weight: 600;
+}
+
+.nota {
+    font-weight: 500;
+    font-style: italic;
+    max-width: 60ch;
+}
+
+.imagen {
+    border: 2px solid var(--primary-color);
+    width: 750px;
+    height: auto;
+    margin: auto;
+}
+
+.descripcion {
+    text-align: center;
+}
+
+.caption {
+    text-align: center;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.preparacion,
+#glaseado {
+    max-width: 60ch;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 40px;
+}
+h3 {
+    font-size: 30px;
+}
+h4 {
+    color: var(--primary-color);
+    font-size: 20px;
+}
+.anchor {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+.anchor:hover {
+    color: var(--tertiary-color);
+}
+.de {
+    background-color: var(--secondary-color);
+}

@@ -1,0 +1,98 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Desafios</title>
+	</head>
+	<body>
+		<section>
+			<article>
+				<h1>Animación de transformación</h1>
+				<div class="container">
+					<div class="box_transform"></div>
+				</div>
+			</article>
+			<article>
+				<h1>Animación de cambio de propiedades</h1>
+				<div class="container">
+					<div class="box_propiedades"></div>
+				</div>
+			</article>
+
+			<article>
+				<h1>Animación compleja</h1>
+				<div class="container">
+					<div class="box_compleja"></div>
+				</div>
+			</article>
+		</section>
+	</body>
+</html>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	.container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+	}
+
+	.box_transform {
+		width: 200px;
+		height: 200px;
+		background-color: red;
+		animation: 2s ease-in-out infinite;
+		animation-name: animation-transform;
+	}
+	.box_propiedades {
+		width: 200px;
+		height: 200px;
+		background-color: red;
+		animation: 2s ease-in-out infinite;
+		animation-name: animation-propiedades;
+	}
+	.box_compleja {
+		width: 200px;
+		height: 200px;
+		background-color: red;
+		animation: 2s alternate infinite;
+		animation-name: animation-transform, animation-propiedades;
+	}
+	@keyframes animation-transform {
+		0% {
+			transform: scale(1) rotate(0deg) translateX(0);
+		}
+		50% {
+			transform: scale(1.5) rotate(180deg) translateX(100px);
+		}
+		100% {
+			transform: scale(1) rotate(360deg) translateX(0);
+		}
+	}
+	@keyframes animation-propiedades {
+		0% {
+			background-color: red;
+			opacity: 1;
+			width: 200px;
+			height: 200px;
+		}
+		50% {
+			background-color: blue;
+			opacity: 0.5;
+			width: 300px;
+			height: 300px;
+		}
+		100% {
+			background-color: green;
+			opacity: 1;
+			width: 200px;
+			height: 200px;
+		}
+	}
+</style>

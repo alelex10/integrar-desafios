@@ -1,0 +1,133 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-color: #fdf6f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: #ffe5b4;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #cc9933;
+}
+
+/* Imagen */
+img {
+    border: 4px solid #cc9933;
+    width: 100%;
+    height: auto;
+}
+
+/* Navegación */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #cc6600;
+}
+
+nav a:hover {
+    color: #ff3300;
+}
+
+main {
+    background-image: url("https://th.bing.com/th/id/OIP.63aMGq2qmPl-_s4wX6BpoQAAAA?rs=1&pid=ImgDetMain"); /* Reemplazá con tu nombre real */
+    background-size: cover;           /* Ocupar todo el ancho y alto sin distorsión */
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: white;                     /* Texto blanco por defecto */
+    width: 100vw;                     /* Ocupa todo el ancho visible */
+    padding: 20px;
+    border-radius: 0;                 /* Eliminamos bordes redondeados si no querés márgenes */
+    margin: 0;
+}
+
+/* Para que el texto de los article NO sea blanco */
+main article {
+    color: black;
+}
+
+/* Mejora de legibilidad del texto blanco sobre imagen */
+main > *:not(article) {
+    text-shadow: 1px 1px 3px black;
+}
+/* Secciones */
+section {
+    margin-bottom: 30px;
+}
+
+
+
+/* Animación opcional (bonus) */
+h1 {
+    animation: aparecer 2s ease-in-out;
+}
+
+
+
+
+/* Ingredientes */
+#ingredients ul {
+    background-color: #fff3e6;
+    padding: 15px;
+    border: 1px solid #e6b800;
+    list-style-type: square;
+}
+
+/* Preparación */
+#preparation ol {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #bbb;
+    list-style-type: decimal;
+}
+
+/* Aside */
+aside {
+    background-color: rgba(255, 255, 255, 0.85); /* fondo claro con opacidad */
+    color: #333;                                 /* texto oscuro para mejor contraste */
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-family: sans-serif;
+}
+
+aside h3 {
+    margin-bottom: 8px;
+}
+
+aside p {
+    margin: 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #ffe5b4;
+    border-top: 3px solid #cc9933;
+}
+
+/* Enlaces del footer */
+footer a:hover {
+    color: red;
+}
+
+
+.introduction_p{
+    color: white;
+}

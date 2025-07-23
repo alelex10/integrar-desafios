@@ -1,0 +1,152 @@
+<section>
+	<article>
+		<h2>Ejemplos de Gradientes Lineales</h2>
+		<h1>3 ejemplos de gradientes lineales (linear-gradient)</h1>
+		<!-- Gradiente Horizontal -->
+		<div>
+			<div class="gradient-container gradient1">
+				<h1>Gradiente Horizontal</h1>
+			</div>
+			<!-- Gradiente Vertical -->
+			<div class="gradient-container gradient2">
+				<h1>Gradiente Vertical</h1>
+			</div>
+			<!-- Gradiente Diagonal -->
+			<div class="gradient-container gradient3">
+				<h1>Gradiente Diagonal</h1>
+			</div>
+		</div>
+	</article>
+	<article>
+		<h2>Ejemplos de Gradientes Radiales</h2>
+		<!-- Gradiente Radial 1 -->
+		<div class="gradient-container gradient4">
+			<h1>Radial 1</h1>
+		</div>
+
+		<!-- Gradiente Radial 2 -->
+		<div class="gradient-container gradient5">
+			<h1>Radial 2</h1>
+		</div>
+
+		<h2>Ejemplo de Gradiente Cónico</h2>
+		<!-- Gradiente Cónico -->
+		<div class="gradient-container gradient6">
+			<h1>Gradiente Cónico</h1>
+		</div>
+	</article>
+	<article>
+		<h2>Fondo de imagen</h2>
+		<div class="background-image"></div>
+		<h2>Múltiples Capas de Fondo</h2>
+		<div>
+			<div class="multiple-backgrounds">
+				<h3>Múltiples capas de fondo</h3>
+			</div>
+		</div>
+	</article>
+</section>
+
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	section {
+		width: fit-content;
+		padding: 0 auto;
+		margin: 0 auto;
+	}
+	h1 {
+		text-align: center;
+	}
+	.gradient-container {
+		text-align: center;
+		align-content: center;
+		height: 400px;
+		width: 400px;
+		margin: 20px 0;
+		border-radius: 8px;
+	}
+
+	/* Gradiente Horizontal */
+	.gradient1 {
+		background: linear-gradient(to right, oklch(0.5 0.2 30), oklch(0.5 0.2 70), oklch(0.5 0.2 110));
+	}
+
+	/* Gradiente Vertical */
+	.gradient2 {
+		background: linear-gradient(to bottom, oklch(0.7 0.15 248), oklch(0.7 0.15 238), oklch(0.7 0.15 228));
+	}
+
+	/* Gradiente Diagonal */
+	.gradient3 {
+		background: linear-gradient(45deg, oklch(0.7 0.2 23), oklch(0.7 0.2 43), oklch(0.7 0.2 103));
+	}
+	.gradient4 {
+		background: radial-gradient(oklch(0.7 0.3 50), oklch(0.7 0.3 70), oklch(0.7 0.3 90));
+	}
+	.gradient5 {
+		color: aqua;
+		background: radial-gradient(circle, oklch(0.3 0 0), oklch(0 0 0) 50%, oklch(0.2 0 0) 50%);
+	}
+	.gradient6 {
+		background: conic-gradient(oklch(0.7 0.3 50), oklch(0.7 0.3 70), oklch(0.7 0.3 90));
+		animation: gradient-conic 2s linear infinite;
+	}
+	@property --point {
+		syntax: "<angle>";
+		initial-value: 0deg;
+		inherits: false;
+	}
+
+	@keyframes gradient-conic {
+		0% {
+			--point: 0deg;
+			background-image: conic-gradient(from var(--point), oklch(0.7 0.3 50), oklch(0.7 0.3 70), oklch(0.7 0.3 90));
+		}
+
+		100% {
+			--point: 360deg;
+			background-image: conic-gradient(from var(--point), oklch(0.7 0.3 50), oklch(0.7 0.3 70), oklch(0.7 0.3 90));
+		}
+	}
+
+	.background-image {
+		background-image: url(https://images.pexels.com/photos/1146134/pexels-photo-1146134.jpeg?cs=srgb&dl=pexels-umkreisel-app-1146134.jpg&fm=jpg);
+		background-size:;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		height: 400px;
+		width: 400px;
+		border-radius: 8px;
+	}
+	.multiple-backgrounds {
+		--radio: 25%;
+
+		background-image: radial-gradient(
+				circle,
+				oklch(0.3 0 0),
+				oklch(0 0 0) 17%,
+				oklch(1 0.6 90) 24% 25%,
+				oklch(0.001 0 0 / 0) 30%			),
+			radial-gradient(
+				ellipse 90% 50%,
+				oklch(0 0.3 50 / 0),
+				oklch(1 0.8 90) var(--radio),
+				oklch(1 0.6 90) calc(var(--radio) + 2%),
+				oklch(0.01 0 0 / 1) calc(var(--radio) + 6%),
+				oklch(0.01 0 0 / 0.4) calc(var(--radio) + 20%)
+			),
+			url(https://images.pexels.com/photos/1146134/pexels-photo-1146134.jpeg?cs=srgb&dl=pexels-umkreisel-app-1146134.jpg&fm=jpg);
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		height: 100vh;
+		width: 90vw;
+		border-radius: 8px;
+	}
+</style>

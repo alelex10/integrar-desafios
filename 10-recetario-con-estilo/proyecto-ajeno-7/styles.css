@@ -1,0 +1,145 @@
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    border-left: 80px solid rgba(0, 0, 0, 0.2);
+    border-right: 80px solid rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    background-color: oklch( 0.884 0.03 300 );
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  main , h1 , p , footer{
+    width: 80vw;
+    margin: 0 auto;
+  
+  }
+  nav{
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+    font-size: 4ch;
+    background-color: oklch(0.2825 0.003 261 / 0.249);
+  
+  }
+  nav a{
+    margin: 2%;
+    color: oklch(0 0 0);
+  }
+  .a__nav{
+    text-decoration: none;
+    border: 5px solid oklch(0 0 0);
+  }
+  .a__nav:hover{
+    background-color: oklch(0.519 0.065 264 / 0.533);
+    border-radius: 20px;
+    color: oklch(0.972 0.003 215 / 0.878);
+    border-color: oklch(0.972 0.003 215 / 0.301);
+  }
+  header{
+    background-color: oklch(0.487 0.068 272 / 0.22);
+    text-align: center;
+    padding: 1rem;
+  }
+  header p{
+    font-size: 25px;
+  }
+  section h1{
+    font-size: 40px;
+  }
+  main{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  h2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 5%;
+    padding-right: 5%;
+    padding-bottom: 2%;
+    border-right: 5px oklch(0 0 0 / 0.179) dashed;
+    border-bottom: 5px oklch(0 0 0 / 0.179) dashed;
+    width: fit-content;
+    max-width: 90%;
+  
+  }
+  footer {
+    margin-top: 30px;
+    font-size: 0.85rem;
+    text-align: center;
+    color: #555;
+  }
+  .ingredientes{
+    font-size: 2ch;
+  }
+  .ingredientes li {
+    margin: 0.5rem 0;
+    border-top: 10px solid oklch(0.818 0.004 254);
+    border-bottom: 10px solid oklch(0.818 0.004 254);
+  
+    list-style-type: square;
+  
+  }
+  
+  .preparacion{
+    background-color: oklch(0.97 0.02 270);
+    border-left: 6px solid oklch(0.6 0.2 30); 
+    padding: 1rem 2rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    box-shadow: 2px 2px 6px oklch(0 0 0 / 0.1);
+  }
+  .preparacion li {
+    border-bottom: 1px solid oklch(0.8 0.01 270); 
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    
+  }
+  .img__container{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .img__container img {
+    border: 3px solid #aaa;
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  figcaption{
+    font-weight: bold;
+  }
+  aside {
+    background-color: #f0e6ff;
+    padding: 15px;
+    margin: 20px auto;
+    border-left: 4px solid #a76ed4;
+    border-radius: 6px;
+    font-size: 1rem;
+    width: 80ch;
+    animation: aparecer 0.8s ease-in-out;
+  
+  }
+  @keyframes aparecer {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  aside h3 {
+    margin-top: 0;
+    color: #5a2e8a;
+  }
+  

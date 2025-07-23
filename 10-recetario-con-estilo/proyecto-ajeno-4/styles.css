@@ -1,0 +1,209 @@
+//// general
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff8f0;
+  color: #333;
+  margin: 20px;
+  padding: 0;
+  line-height: 1.6;
+}
+
+
+header {
+  background-color: #e63946;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border: 3px solid #b71c1c;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  animation: resaltar 2s infinite;
+}
+
+header p {
+  font-size: 1.2em;
+}
+
+
+main {
+  background-color: #f1faee;
+  padding: 20px;
+  margin: 20px 0;
+  border: 2px solid #a8dadc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+
+footer {
+  background-color: #457b9d;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid #1d3557;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+
+section {
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: #ffffff;
+  border: 2px solid #a8dadc;
+  border-radius: 10px;
+}
+
+////estilo para ingredientes
+section:nth-of-type(1) h2 {
+  color: #1d3557;
+  text-align: left;
+  border-bottom: 2px solid #1d3557;
+  padding-bottom: 5px;
+}
+
+section:nth-of-type(1) ul {
+  color: #1d3557;
+  font-size: 18px;
+  margin-left: 20px;
+  list-style-type: square;
+  padding: 10px;
+  background-color: #f0f8ff;
+  border-radius: 5px;
+}
+
+section:nth-of-type(1) li {
+  margin: 10px 0;
+}
+
+//// stilo para la preparacion
+section:nth-of-type(2) h2 {
+  color: #e76f51;
+  text-align: left;
+  border-bottom: 2px solid #e76f51;
+  padding-bottom: 5px;
+}
+
+section:nth-of-type(2) ol {
+  color: #e76f51;
+  font-size: 16px;
+  margin-left: 20px;
+  padding: 10px;
+  background-color: #fff3e0;
+  border-radius: 5px;
+}
+
+section:nth-of-type(2) li {
+  margin: 10px 0;
+}
+
+/// esto es para el consejo
+aside {
+  background-color: #ffe8d6;
+  border: 2px dashed #e76f51;
+  padding: 15px;
+  margin: 20px 0;
+  text-align: left;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+aside:hover {
+  background-color: #ffdab9;
+}
+
+aside h3 {
+  margin-top: 0;
+  color: #b5651d;
+}
+
+/////// esto es para la imagen
+figure {
+  margin: 20px 0;
+}
+
+figure img {
+  width: 100%;
+  max-width: 500px;
+  border: 5px solid #e63946;
+  border-radius: 10px;
+  margin-top: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+figure img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+figcaption {
+  font-style: italic;
+  color: #555;
+  margin-top: 5px;
+}
+
+////enlace
+a {
+  color: #1d3557;
+  text-decoration: none;
+  border-bottom: 2px solid #1d3557;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+a:hover {
+  color: #e63946;
+  border-bottom: 2px solid #e63946;
+}
+
+////barra de navegacion
+nav {
+  margin-top: 20px;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+///animacion sencilla
+@keyframes resaltar {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+////lista general
+ul, ol {
+  padding-left: 30px;
+}
+
+
+article {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+///bordes no cuadrados
+h2, h3 {
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+
+h2 {
+  border-bottom: 2px solid #ccc;
+}
+
+
+ul li, ol li {
+  border-bottom: 1px dashed #ddd;
+  padding-bottom: 5px;
+}
+
+
+
+
+
+

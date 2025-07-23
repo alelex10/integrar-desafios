@@ -1,0 +1,295 @@
+@import url("https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Sue+Ellen+Francisco&display=swap");
+
+/* RESET de CSS */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+/* .reenie-beanie-regular {
+  font-family: "Reenie Beanie", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+ */
+:root {
+	--white: oklch(1 0 0);
+	--black: oklch(0 0 0);
+	--coral-red: oklch(66.31% 21.32% 13.39);
+	--bronze: oklch(0.7002 0.1645 58.28);
+	--creamy-ivory: oklch(96.47% 1.58% 73.68);
+	--peachy-cream: oklch(90.35% 4.85% 38.8);
+	--burgundy: oklch(0.3547 0.1197 17.94);
+	--blue: oklch(0.5 0.35 260);
+}
+
+html {
+	font-size: 20px;
+	font-family: "Sue Ellen Francisco", cursive;
+}
+
+body {
+	min-height: 100vh;
+	line-height: 1.5;
+	color: white;
+	background: radial-gradient(
+		circle,
+		var(--coral-red) 1%,
+		var(--bronze) 100%
+	);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Retrasos escalonados */
+.steps__list__item:nth-child(1) {
+	animation-delay: 0.4s;
+}
+.steps__list__item:nth-child(2) {
+	animation-delay: 0.6s;
+}
+.steps__list__item:nth-child(3) {
+	animation-delay: 0.8s;
+}
+.steps__list__item:nth-child(4) {
+	animation-delay: 1s;
+}
+
+@keyframes slideIn {
+	0% {
+		opacity: 0;
+		transform: translateX(-500px);
+	}
+	60% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInFromRight {
+	0% {
+		opacity: 0;
+		transform: translateX(500px);
+	}
+	60% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.header {
+	padding: 2rem 1rem;
+	.header__title {
+		font-size: 3rem;
+		text-transform: uppercase;
+		font-weight: 600;
+		text-wrap: balance;
+		text-align: center;
+		letter-spacing: 0.1em;
+	}
+}
+
+.hero {
+	padding: 2rem;
+	max-width: 80vw;
+	margin: 0 auto;
+	border: 1px solid color-mix(in oklch, var(--white) 12%, transparent);
+	border-radius: 1em;
+	background: conic-gradient(
+		at 0% 2%,
+		color-mix(in oklch, var(--white) 12%, transparent) 10%,
+		color-mix(in oklch, var(--peachy-cream) 10%, transparent) 30%,
+		color-mix(in oklch, var(--creamy-ivory) 10%, transparent) 50%
+	);
+	box-shadow: 5px 5px 10px color-mix(in oklch, var(--black) 20%, transparent);
+	.hero__container {
+		.description {
+			.description__title {
+				font-size: 1.2rem;
+				letter-spacing: 0.05rem;
+				text-align: center;
+			}
+		}
+		.ingredients {
+			padding: 2rem;
+			width: 300px;
+			margin: 2rem auto;
+			border: 1px solid var(--white);
+			background-color: var(--white);
+			box-shadow: 2px 2px 8px
+				color-mix(in oklch, var(--black) 40%, transparent);
+			.ingredients__title {
+				color: var(--blue);
+				text-transform: uppercase;
+				font-size: 1rem;
+				text-align: center;
+				margin-bottom: 0.5rem;
+				letter-spacing: 0.05rem;
+				border-bottom: 1px solid
+					color-mix(in oklch, var(--black) 25%, transparent);
+			}
+			.ingredients__list {
+				color: var(--blue);
+				margin-left: 0.5rem;
+				.ingredients__list__item {
+					list-style: circle;
+					border-bottom: 1px solid
+						color-mix(in oklch, var(--black) 25%, transparent);
+				}
+			}
+		}
+
+		.steps {
+			padding: 1rem;
+			.steps__title {
+				text-align: center;
+				text-transform: uppercase;
+				letter-spacing: 0.1rem;
+				margin-bottom: 0.5rem;
+			}
+			.steps__list {
+				color: var(--black);
+				letter-spacing: 0.05rem;
+				padding: 2rem;
+				margin: 0 auto;
+				width: fit-content;
+				overflow: hidden;
+				.steps__list__item {
+					background-color: color-mix(
+						in oklch,
+						var(--creamy-ivory) 95%,
+						transparent
+					);
+					margin: 1rem 0;
+					padding: 2rem;
+					border: 1px solid var(--white);
+					border-radius: 70px 70px 70px 0;
+					filter: drop-shadow(
+						2px 2px 6px
+							color-mix(
+								in oklch,
+								var(--burgundy) 80%,
+								transparent
+							)
+					);
+					max-width: 400px;
+					opacity: 0;
+					animation: slideIn linear;
+					animation-timeline: scroll(root);
+					animation-range: entry 0% cover 40%;
+					animation-fill-mode: forwards;
+				}
+
+				/* Elementos pares (derecha) */
+				.steps__list__item:nth-child(even) {
+					border-radius: 70px 70px 0 70px;
+					filter: drop-shadow(
+						-2px 2px 6px color-mix(in oklch, var(--burgundy) 80%, transparent)
+					);
+					animation: slideInFromRight linear;
+					animation-timeline: scroll(root);
+					animation-range: entry 0% cover 40%;
+					animation-fill-mode: forwards;
+				}
+			}
+		}
+		.image {
+			margin: 2rem auto;
+			width: 300px;
+			border: 0.5rem solid
+				color-mix(in oklch, var(--burgundy) 50%, transparent);
+			transition: transform 0.2s ease-in-out;
+			img {
+				object-fit: contain;
+                padding: 5px;
+                
+			}
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+
+		.additionalInfo {
+			width: 100%;
+			.additionalInfo__container {
+				padding: 1rem;
+				margin: 0 auto;
+
+				.additionalInfo__container__title {
+					text-align: center;
+					font-size: 1.8rem;
+					font-weight: 400;
+					border-bottom: 1px dashed var(--white);
+					margin-bottom: 1.5rem;
+				}
+				.additionalInfo__container__description {
+					text-wrap: balance;
+                    text-align: center;
+					font-size: 1.2rem;
+					font-weight: lighter;
+					font-style: italic;
+					letter-spacing: 0.03rem;
+					margin-bottom: 1rem;
+					max-width: 80ch;
+					margin: 1.5rem auto;
+				}
+				.additionalInfo__container__reference {
+					text-wrap: balance;
+					text-align: center;
+					font-size: 1rem;
+					font-weight: lighter;
+					letter-spacing: 0.03rem;
+					margin: 0 auto;
+					transition: all 0.3s ease-in-out;
+
+					a {
+						color: var(--white);
+					}
+					a:hover {
+						color: var(--burgundy);
+					}
+				}
+			}
+		}
+	}
+}
+.firm {
+	display: block;
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	padding: 2rem;
+	margin-bottom: 2rem;
+    .firm__info{
+        letter-spacing: 0.1rem;
+        font-size: 1.2rem;
+        b {
+            text-transform: uppercase;
+            font-size: 1rem;
+        }
+    }
+}

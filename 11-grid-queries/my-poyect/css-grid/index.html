@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<main>
+		</main>
+	</body>
+</html>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	body {
+		background: oklch(0.2 0 0);
+	}
+	main {
+		margin: 0 auto;
+		overflow: hidden;
+		max-width: calc(1200px + 1rem * 3);
+		display: grid;
+		grid-template-columns: repeat(4, 300px);
+		grid-template-rows: repeat(10, 300px);
+		gap: 1rem;
+		& img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+</style>
+<script>
+
+	const main = document.querySelector("main");
+
+	for (let i = 1; i <= 12; i++) {
+		let randomEntero = Math.floor(Math.random() * 800);
+		// altura random entre 1 y 2
+		let randomSpaceHeight = Math.floor(Math.random() * 2) + 1;
+		// ancho random entre 1 y 2
+		let calculeCurrentRow = Math.floor(i / 4 + 1);
+
+		let randomSpaceWidth = Math.floor(Math.random() * 2) + 1;
+
+		qualityImg = randomSpaceHeight * randomSpaceWidth > 1 ? "600" : "300";
+		console.log(
+			"i",
+			i,
+			"calculeCurrentRow",
+			calculeCurrentRow,
+			"randomEntero",
+			randomEntero,
+			"randomSpaceHeight",
+			randomSpaceHeight,
+			"randomSpaceWidth",
+			randomSpaceWidth,
+			"qualityImg",
+			qualityImg,
+
+		);
+		main.innerHTML += `<img class="img-${i}" src="https://picsum.photos/seed/${randomEntero}/${qualityImg}" alt="">`;
+
+		const img = main.querySelector(`.img-${i}`);
+
+		img.style.gridArea = `auto / auto / span ${randomSpaceHeight} / span ${randomSpaceWidth}`;
+	}
+</script>

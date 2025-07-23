@@ -1,0 +1,220 @@
+<header>
+	<nav>
+		<ul>
+			<li><a href="#sobre-mi">sobre-mi</a></li>
+			<li><a href="#conocimientos">conocimientos</a></li>
+			<li><a href="#idiomas">proyectos</a></li>
+			<li><a href="#contacto">contacto</a></li>
+			<li><a href="#educacion-experiencia">estudios</a></li>
+		</ul>
+	</nav>
+</header>
+<main>
+	<span>
+		<!-- * breve descripción de ustedes -->
+		<section id="sobre-mi">
+			<h1>Sobre mi</h1>
+			<p>
+				Hola soy <strong>Alejandro Verduguez </strong>un profesional con sólida formación en programación Backend Java,
+				apasionado por la tecnología y el desarrollo de software. Destaco por mi competitividad, trabajo en equipo y
+				dedicación en encontrar soluciones innovadoras.
+			</p>
+		</section>
+		<!-- conocimientos actuales en el área IT -->
+		<section id="conocimientos">
+			<h2>Conocimientos actuales en el área IT</h2>
+			<ul>
+				<li>HTML</li>
+				<li>CSS</li>
+				<li>JavaScript</li>
+				<li>TypeScript</li>
+				<li>GitHub</li>
+				<li>React</li>
+				<li>Oracle Clound</li>
+				<li>SQL</li>
+				<li>Java</li>
+				<li>SpringBoot</li>
+				<li>Git</li>
+				<li>Soporte IT</li>
+			</ul>
+		</section>
+	</span>
+	<!-- manejo de idiomas -->
+	<section id="idiomas">
+		<h2>Idiomas</h2>
+		<ul>
+			<li>Español</li>
+			<li>A duras penas inglés XD</li>
+		</ul>
+	</section>
+	<!-- educación y experiencia laboral -->
+	<section id="educacion-experiencia">
+		<span>
+			<h2>Experiencia laboral</h2>
+			<p>ninguna</p>
+		</span>
+		<span>
+			<span>
+				<h2>Educación</h2>
+				<h3>universidad 2018-2022</h3>
+				<p>primer año incompleto</p>
+			</span>
+			<span>
+				<h2>Cursos</h2>
+				<ol>
+					<li>
+						<h3>Alura latam 2023</h3>
+						<p>curso de java, sql, springboot, oracle clound</p>
+					</li>
+					<li>
+						<h3>Junior Archivement 2023</h3>
+						<p>curso de soporte IT</p>
+					</li>
+					<li>
+						<h3>Codo a Codo 2022</h3>
+						<p>curso de java</p>
+					</li>
+					<li>
+						<h3>Codo a Codo 2021</h3>
+						<p>curso de python</p>
+					</li>
+					<li>
+						<h3>Aprender programando 2017</h3>
+						<p>cusos de programación inicial html y css</p>
+					</li>
+				</ol>
+			</span>
+			<li>
+				<h3>secundario 2013-2018</h3>
+				<p>Bachillerato en Economia y administracion</p>
+			</li>
+		</span>
+	</section>
+	<!-- formulario de contacto con los campos: Nombre, Asunto y Mensaje. -->
+	<section id="contacto">
+		<h2>Contacto</h2>
+		<form>
+			<div>
+				<label for="name">Nombre:</label>
+				<input type="text" id="name" name="name" required />
+			</div>
+			<div>
+				<label for="subject">Asunto:</label>
+				<input type="text" id="subject" name="subject" required />
+			</div>
+			<div>
+				<label for="message">Mensaje:</label>
+				<textarea id="message" name="message" required></textarea>
+			</div>
+
+			<button type="submit">Enviar</button>
+		</form>
+	</section>
+</main>
+<style>
+	li {
+		padding-bottom: 2rem;
+	}
+	/* desapareser punto de li */
+	li::marker {
+		content: none;
+	}
+	/* Nordic Lite Theme */
+	body {
+		font-family: "Helvetica Neue", sans-serif;
+		background: #f8f9fa;
+		color: #212529;
+	}
+
+	header {
+		background: #fff;
+		border-bottom: 2px solid #dee2e6;
+		padding: 1rem 5%;
+	}
+
+	nav a {
+		color: #212529;
+		padding: 0.8rem 1.5rem;
+		transition: 0.3s;
+	}
+
+	/* Layout principal */
+	main {
+		max-width: 1200px;
+		margin: 4rem auto;
+	}
+
+	section {
+		background: white;
+		padding: 2rem;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		border-radius: 8px;
+		margin-bottom: 2rem;
+	}
+
+	section h2 {
+		color: #0d6efd;
+		font-weight: 600;
+	}
+
+	/* Listas destacadas */
+
+	#conocimientos li {
+		background: #e2e6ea;
+		margin: 0.5rem 0;
+		padding: 0.75rem;
+		border-radius: 6px;
+	}
+
+	#conocimientos li::before {
+		content: "✓ ";
+		color: #0dcaf0;
+		margin-right: 8px;
+	}
+
+	/* Sección idiomas */
+	#idiomas {
+		background: #0dcaf01a;
+		border: 1px solid #0dcaf04d;
+		padding: 15px;
+	}
+
+	#idiomas li {
+		font-weight: bold;
+		opacity: 0.9;
+	}
+	form div {
+		padding: 0 4rem;
+	}
+
+	form label {
+		color: #0d6efd;
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+	}
+
+	form input,
+	form textarea {
+		width: 100%;
+		padding: 1rem;
+		border-radius: 4px;
+		border: 1px solid #ced4da;
+		margin: 0.5rem 0;
+	}
+
+	button[type="submit"] {
+		background: #0d6efd;
+		color: white;
+		padding: 1rem 2rem;
+		border: none;
+		border-radius: 4px;
+		margin-left: 50%;
+		translate: -50% 0;
+		cursor: pointer;
+		transition: 0.25s;
+	}
+
+	button:hover {
+		background: #0b5edf;
+	}
+</style>
