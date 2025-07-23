@@ -4,10 +4,12 @@ interface Product {
 	price: number;
 	description: string;
 }
-const IDs: Set<number> = new Set();
 type CreateProduct = Omit<Product, "id">;
 type UpdateProduct = Partial<Omit<Product, "id">>;
 type DeleteProduct = Pick<Product, "id">;
+
+let products: Product[] = [];
+const IDs: Set<number> = new Set();
 
 const generateIdRandom = () => {
 	let num: number;
@@ -21,17 +23,19 @@ const generateIdRandom = () => {
 const createProduct = (product: CreateProduct) => {
 	const id = generateIdRandom();
 	IDs.add(id);
-	return { ...product, id };
+    products.push({ ...product, id });
+    console.log("Product created", products);
 };
 
-const updateProduct = (product: UpdateProduct) => {
-    return product;
+const updateProduct = (product: UpdateProduct, id: number) => {
+    const index = products.findIndex((p) => p.id === id);
+    products[index] = { ...products[index], ...product };
+    console.log("Product updated", products);
+
 };
 
 const deleteProduct = (product: DeleteProduct) => {
-    return product;
+    const index = products.findIndex((p) => p.id === product.id);
+    products.splice(index, 1);
+    console.log("Product deleted", products);
 };
-
-const product1 = createProduct({ name: "Product 1", price: 100, description: "Description 1" });
-const product2 = updateProduct({ name: "Product 2", price: 200 });
-const product3 = deleteProduct({ id: 3 });
