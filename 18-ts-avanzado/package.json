@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev1": "tsc && node ./dist/1-utility-types.js",
-    "dev2": "tsc && node ./dist/2-clases-con-types.js"
+    "dev2": "tsc && node ./dist/2-clases-con-types.js",
+    "dev3": "tsc && node ./dist/3-generic-types.js"
   },
   "keywords": [],
   "author": "",

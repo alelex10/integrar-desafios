@@ -79,4 +79,4 @@ studentNotes.forEach((score, subject) => {
     console.log(`El estudiante ${student.getName()} tiene una nota de ${score} en ${subject}`);
 });
 // Admin actions (if needed)
-console.log(`El administrador ${admin.getName()} esta gestionando al usuario ${student}`);
+console.log(`El administrador ${admin.getName()} esta gestionando al usuario ${student.getName}`);
