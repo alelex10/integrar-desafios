@@ -1,4 +1,5 @@
 "use strict";
+let products = [];
 const IDs = new Set();
 const generateIdRandom = () => {
     let num;
@@ -10,15 +11,16 @@ const generateIdRandom = () => {
 const createProduct = (product) => {
     const id = generateIdRandom();
     IDs.add(id);
-    return { ...product, id };
+    products.push({ ...product, id });
+    console.log("Product created", products);
 };
-const updateProduct = (product) => {
-    return product;
+const updateProduct = (product, id) => {
+    const index = products.findIndex((p) => p.id === id);
+    products[index] = { ...products[index], ...product };
+    console.log("Product updated", products);
 };
 const deleteProduct = (product) => {
-    return product;
+    const index = products.findIndex((p) => p.id === product.id);
+    products.splice(index, 1);
+    console.log("Product deleted", products);
 };
-const product1 = createProduct({ name: "Product 1", price: 100, description: "Description 1" });
-const product2 = updateProduct({ name: "Product 2", price: 200 });
-const product3 = deleteProduct({ id: 3 });
-console.log(product1, product2, product3);
