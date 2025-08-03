@@ -62,6 +62,11 @@ export class NotificationsGateway
 
   @SubscribeMessage('notification-read')
   readNotification(client: Socket, payload: { idNotification: string }) {
-    this.notificationsService.read(payload.idNotification, client.id);
+    const notifications = this.notificationsService.read(
+      payload.idNotification,
+      client.id,
+    );
+    // emit updated notifications for the user
+    client.emit('notifications', notifications);
   }
 }
