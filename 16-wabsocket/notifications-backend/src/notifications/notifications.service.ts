@@ -5,6 +5,7 @@ import { Notification } from './interfaces/notifications.interface';
 
 @Injectable()
 export class NotificationsService {
+  
   private readonly notifications: Notification[] = [];
 
   create(createNotificationDto: CreateNotificationDto): Notification {
