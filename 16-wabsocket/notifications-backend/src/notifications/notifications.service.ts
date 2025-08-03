@@ -5,9 +5,6 @@ import { Notification } from './interfaces/notifications.interface';
 
 @Injectable()
 export class NotificationsService {
-  read(id: string) {
-    throw new Error('Method not implemented.');
-  }
   private readonly notifications: Notification[] = [];
 
   create(createNotificationDto: CreateNotificationDto): Notification {
@@ -23,19 +20,23 @@ export class NotificationsService {
     return newNotification;
   }
 
-  findAll() {
-    return `This action returns all notifications`;
+  read(idNotification: string, userId: string): Notification[] {
+    // find notification by id
+    const notification = this.notifications.find(
+      (notif) => notif.id === idNotification,
+    );
+
+    if (notification) {
+      // mark notification as read
+      notification.read = true;
+    } 
+    return this.notificationsForUser(userId);
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} notification`;
-  }
-
-  update(id: number, updateNotificationDto: UpdateNotificationDto) {
-    return `This action updates a #${id} notification`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} notification`;
+  notificationsForUser(userId: string): Notification[] {
+    // filter notifications for a specific user
+    return this.notifications.filter(
+      (notificationo) => notificationo.userId === userId,
+    );
   }
 }

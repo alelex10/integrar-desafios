@@ -30,15 +30,20 @@ export class NotificationsGateway
 
   handleConnection(client: Socket, ...args: any[]) {
     this.usersIDs.push(client.id);
-
     console.log(`🚀Client connected: ${client.id}`);
-
-    this.server.emit('users', this.usersIDs);
+    this.server.emit(
+      'users',
+      this.usersIDs.filter((userID) => userID !== client.id),
+    );
   }
 
   handleDisconnect(client: Socket) {
     this.usersIDs.splice(this.usersIDs.indexOf(client.id), 1);
     console.log(`🚀Client disconnected: ${client.id}`);
+    this.server.emit(
+      'users',
+      this.usersIDs.filter((userID) => userID !== client.id),
+    );
   }
 
   @SubscribeMessage('create-notification')
@@ -56,7 +61,7 @@ export class NotificationsGateway
   }
 
   @SubscribeMessage('notification-read')
-  handleUsers(client: Socket) {
-    this.notificationsService.read(client.id);
+  readNotification(client: Socket, payload: { idNotification: string }) {
+    this.notificationsService.read(payload.idNotification, client.id);
   }
 }
