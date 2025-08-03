@@ -8,6 +8,9 @@ export interface Notification {
   timestamp: Date;
 }
 
+export interface ICreateNotification
+  extends Pick<Notification, 'userId' | 'message' | 'type'> {}
+
 export interface NotificationUser {
   id: string;
   socketId: string;

@@ -5,6 +5,7 @@
 
 #continue
 .continue
+.vscode
 # Logs
 logs
 *.log
