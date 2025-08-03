@@ -20,7 +20,7 @@ export class NotificationsGateway
 {
   @WebSocketServer() server: Server;
 
-  private usersID:[] = [];
+  private usersIDs: string[] = [];
 
   constructor(private readonly notificationsService: NotificationsService) {}
 
@@ -29,21 +29,26 @@ export class NotificationsGateway
   }
 
   handleConnection(client: Socket, ...args: any[]) {
+    this.usersIDs.push(client.id);
 
+    console.log(`🚀Client connected: ${client.id}`);
+
+    this.server.emit('users', this.usersIDs);
   }
 
   handleDisconnect(client: Socket) {}
 
   @SubscribeMessage('create-notification')
-  handleMessage(client: Socket, payload: CreateNotificationDto) {
+  handleCreateNotification(client: Socket, payload: CreateNotificationDto) {
     // create notification
     const notification = this.notificationsService.create(payload);
 
-    const userId = this.usersID.find((userID) => userID === client.id);
+    // get user id
+    const userId = this.usersIDs.find((userID) => userID === client.id);
 
     if (userId) {
+      // send notification to user specified in payload
       this.server.to(userId).emit('notification', notification);
     }
-    // send notification to user specified in payload
   }
 }
