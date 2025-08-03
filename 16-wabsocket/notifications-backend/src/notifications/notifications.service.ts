@@ -5,7 +5,9 @@ import { Notification } from './interfaces/notifications.interface';
 
 @Injectable()
 export class NotificationsService {
-  
+  read(id: string) {
+    throw new Error('Method not implemented.');
+  }
   private readonly notifications: Notification[] = [];
 
   create(createNotificationDto: CreateNotificationDto): Notification {
