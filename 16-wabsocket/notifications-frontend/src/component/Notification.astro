@@ -1,0 +1,134 @@
+---
+import { isContext } from "vm";
+---
+
+<div class="notification">
+	<!-- SVG Notification -->
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 24 24"
+		stroke-width="1.5"
+		stroke="currentColor"
+		class="notification__icon"
+	>
+		<path
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
+		></path>
+	</svg>
+
+	<div class="notification__dropdown">
+		<ul class="notification__list">
+			<p>sin notificaciones</p>
+		</ul>
+	</div>
+</div>
+<style>
+	.notification {
+		position: relative;
+		display: inline-block;
+	}
+	.notification__icon {
+		width: 1.5rem;
+		height: 1.5rem;
+		color: var(--color-white);
+		cursor: pointer;
+	}
+	.notification__dropdown {
+		position: absolute;
+		top: 100%;
+		right: 0;
+		background-color: #23262d;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 4px;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+		min-width: 200px;
+		display: none; /* Hidden by default */
+		z-index: 10;
+	}
+	/*  */
+	.notification:focus .notification__dropdown {
+		display: block; /* Show on hover */
+	}
+	.show {
+		display: block;
+	}
+	/*  */
+	.notification__list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.notification__list li {
+		padding: 0.75rem 1rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	}
+	.notification__list li:last-child {
+		border-bottom: none;
+	}
+	.notification__list li:hover {
+		background-color: rgba(255, 255, 255, 0.05);
+	}
+	.notification__message {
+		color: var(--color-white);
+		font-size: .8rem;
+	}
+	.notification__info {
+		color: #2196f3;
+	}
+	.notification__warning {
+		color: #ff9800;
+	}
+	.notification__error {
+		color: #f44336;
+	}
+	.notification__success {
+		color: #4caf50;
+	}
+</style>
+<script >
+	import { socket } from "../gateway/gateway";
+
+	const notification = document.querySelector(".notification .notification__icon");
+	const dropdown = document.querySelector(".notification__dropdown");
+
+	notification!.addEventListener("click", () => {
+		dropdown!.classList.toggle("show");
+	});
+
+	interface Response<T> {
+		success: boolean;
+		message: string;
+		data: T;
+	}
+	interface Notification {
+		id: string;
+		userId: string;
+		message: string;
+		type: "info" | "warning" | "error" | "success";
+		read: boolean;
+		timestamp: Date;
+	}
+
+	socket.on("notification", (data: Response<Notification[]>) => {
+		// Handle notification data here
+		console.log("New notification:", data);
+		// Update the notification list in the dropdown
+		const list = document.querySelector(".notification__list");
+		if (list) {
+			list.innerHTML = data.data
+				.map(
+					(notification) => `
+						<li>
+							<b class="notification__${notification.type}">${notification.type}</b>
+							<p class="notification__message">${notification.message}</p>
+						</li>
+					`
+				)
+				.join("");
+		}
+		
+	});
+</script>

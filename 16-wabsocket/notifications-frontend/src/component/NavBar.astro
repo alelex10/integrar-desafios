@@ -1,0 +1,40 @@
+---
+import Notification from "./Notification.astro";
+---
+
+<nav>
+	<ul>
+		<li><a href="">Casa</a></li>
+		<li><a href="">Sobre Mi</a></li>
+		<li><a href="">Blog</a></li>
+	</ul>
+	<Notification />
+</nav>
+
+<style>
+	nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem 2rem;
+		background-color: #23262d;
+	}
+	ul {
+		display: flex;
+		gap: 2rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		margin: 0;
+	}
+	a {
+		color: var(--color-white);
+		text-decoration: none;
+		font-size: 1.1rem;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+</style>

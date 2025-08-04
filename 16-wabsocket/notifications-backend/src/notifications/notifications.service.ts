@@ -1,13 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { CreateNotificationDto } from './dto/create-notification.dto';
-import { UpdateNotificationDto } from './dto/update-notification.dto';
 import { Notification } from './interfaces/notifications.interface';
 
 @Injectable()
 export class NotificationsService {
   private readonly notifications: Notification[] = [];
 
-  create(createNotificationDto: CreateNotificationDto): Notification {
+  create(createNotificationDto: CreateNotificationDto): Notification[] {
     // create notification
     const newNotification: Notification = {
       id: (this.notifications.length + 1).toString(),
@@ -17,13 +16,14 @@ export class NotificationsService {
     };
     // save notification
     this.notifications.push(newNotification);
-    return newNotification;
+    const notifications = this.notificationsForUser(createNotificationDto.userId);
+    return notifications;
   }
 
   read(idNotification: string, userId: string): Notification[] {
     // find notification by id
     const notification = this.notifications.find(
-      (notif) => notif.id === idNotification,
+      (notification) => notification.id === idNotification,
     );
 
     if (notification) {

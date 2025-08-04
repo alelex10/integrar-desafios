@@ -1,0 +1,41 @@
+---
+import NavBar from "../component/NavBar.astro";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+		<script
+			src="https://cdn.socket.io/4.8.1/socket.io.min.js"
+			integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+"
+			crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<header>
+			<NavBar />
+		</header>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--color-white: #f4f4f4;
+		font-family: system-ui, sans-serif;
+		background-color: #121212;
+	}
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		margin: 0;
+
+		color: var(--color-white);
+	}
+</style>
+
