@@ -40,6 +40,6 @@ SELECT film_id FROM inventory WHERE inventory_id = 303
 ```sql
 SELECT address, district FROM public.address WHERE phone = '634445428822'
 
-"address"	"district"
-"1565 Tangail Manor"	"Okinawa"
+-- "address"	"district"
+-- "1565 Tangail Manor"	"Okinawa"
 ```
