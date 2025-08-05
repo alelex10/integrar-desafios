@@ -1,7 +1,8 @@
 name: commit
 version: 0.0.1
 schema: v1
+
 prompts:
   - name: commit
     description: create commit
-    prompt: "generame el commit y solamente el commit"
+    prompt: "generame el commit con las diferencias entre los archivos modificados y solo generame el commit nada mas7"
