@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+// es mejor que el modelo y la entidad tengan las mismas propiedades
+model Book {
+  // @db.Uuid: genera automaticamente 
+  id        String   @id @default(uuid()) @db.Uuid 
+  title     String
+  author    String
+  published DateTime
+  // puede ser null si no se sabe
+  editor    String?
+  available Boolean  @default(true)
+  // estas
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  // para la relacion con loan
+  loans     Loan[]
+  @@map("books") 
+}
+
+model User {
+  id    String @id @default(uuid()) @db.Uuid
+  name  String
+  email String @unique
+  // para la relacion con loan
+  loans Loan[]
+  @@map("users")
+}
+
+model Loan {
+  id        String   @id @default(uuid()) @db.Uuid
+  // para la relacion con book
+  bookId    String   @db.Uuid
+  book Book @relation(fields: [bookId], references: [id])
+  userId    String   @db.Uuid
+  // para la relacion con user
+  user User @relation(fields: [userId], references: [id])
+  loanedAt  DateTime @default(now()) @map("loaned_at")
+  // puede ser null si no ha sido devuelto
+  returnedAt DateTime? @map("returned_at")
+  
+
+  @@map("loans")
+  // composite key
+  // @@id([id, bookId, userId])
+}
