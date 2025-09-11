@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import { CreateTask } from "./components/task/CreateTask";
+import { CardTask, type PropsTask } from "./components/task/CardTask";
+
+export type filterType = "all" | "completed" | "pending";
 
 function App() {
-  const [count, setCount] = useState(0)
+	const [filter, setFilter] = useState<filterType>("pending");
+	const [tasks, setTasks] = useState<PropsTask[]>([
+		{ id: 1, title: "Tarefa 1", description: "Descrição da tarefa 1", completed: false },
+		{ id: 2, title: "Tarefa 2", description: "Descrição da tarefa 2", completed: true },
+	]);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	let filteredTasks: PropsTask[] = [];
+	if (filter === "all") {
+		filteredTasks = tasks;
+	} else if (filter === "completed") {
+		filteredTasks = tasks.filter((task) => task.completed);
+	} else if (filter === "pending") {
+		filteredTasks = tasks.filter((task) => !task.completed);
+	}
+	return (
+		<>
+			<CreateTask setTasks={setTasks} setFilter={setFilter}>
+				{filteredTasks.map((task) => {
+					return (
+						<CardTask
+							key={task.id}
+							id={task.id}
+							title={task.title}
+							description={task.description}
+							completed={task.completed}
+							setTasks={setTasks}
+						/>
+					);
+				})}
+			</CreateTask>
+		</>
+	);
 }
 
-export default App
+export default App;
+
