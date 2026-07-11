@@ -1,0 +1,12 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "outDir": "dist",
+        "noEmit": false // Permite la emisión de archivos JavaScript al compilar
+    },
+    "exclude": [
+        "**/*.test.ts",
+        "**/*.spec.ts",
+        "src/pages/docs/test/**"
+    ]
+}
