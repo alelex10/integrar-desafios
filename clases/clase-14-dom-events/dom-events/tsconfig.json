@@ -1,0 +1,5 @@
+{
+  "extends": "astro/tsconfigs/base", /* para que no sea tan estricto puedo colocar /tsconfigs/basic */
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
+}

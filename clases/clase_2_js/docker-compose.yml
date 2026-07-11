@@ -1,0 +1,7 @@
+services:
+  node-app:
+    image: node:18.20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: node index.js

@@ -1,0 +1,20 @@
+services:
+  nombre-service:
+    image: node:18.3.0-alpine
+    container_name: service1
+    ports:
+    # puerto_host:puerto_contenedor
+      - "3000:3000"
+    volumes:
+    # volumen_host:volumen_contenedor
+      # -./node:/app
+    # volumen nombrado
+      -volumen_node:/app
+    working_dir: /app
+  nombre-service2:
+    image: influxdb:2.2-alpine
+    container_name: service2
+
+# volumen nombrado
+volumes:
+  volumen_node:

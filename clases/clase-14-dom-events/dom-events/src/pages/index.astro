@@ -1,0 +1,114 @@
+---
+
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<h1>Aprendiendo DOM y Eventos en Astro</h1>
+
+		<section id="ejemplosQuerySelector">
+			<h2>Ejemplos querySelector</h2>
+			<ul id="listaElementos">
+				<li class="item" data-id="1">Elemento 1</li>
+				<li class="item" data-id="2">Elemento 2</li>
+				<li class="item especial" data-id="3">Elemento 3 (Especial)</li>
+			</ul>
+		</section>
+		<button id="miBoton">Haz clic aquí (Cambiar Párrafo)</button>
+
+		<p id="miParrafo">Este es un párrafo que cambiará.</p>
+
+		<div class="container">
+			<p class="text">Este es un párrafo dentro de un container.</p>
+			<span class="text">Este es un span dentro de un container.</span>
+		</div>
+		<section>
+			<h1>Eventos</h1>
+			<div>
+				<input type="text" id="nameInput" />
+			</div>
+		</section>
+	</body>
+</html>
+<script>
+	// Astro Component Script (Runs in the browser after hydration)
+	// Ejemplos de querySelector
+	// Por ID
+	const $miBoton = document.querySelector("#miBoton");
+	const miParrafo = document.querySelector("#miParrafo");
+
+	// Por clase
+	const $elementosItem = document.querySelectorAll(".item");
+	const $primerItem = document.querySelector(".item"); // Selecciona solo el primero
+
+	// Por etiqueta
+	const $todosLosParrafos = document.querySelectorAll("p");
+
+	// QuerySelector dentro de otro elemento
+	const $container = document.querySelector(".container");
+	const $parrafoEnContainer = $container.querySelector(".text");
+
+	// QuerySelectorAll dentro de otro elemento
+	const $textosEnContainer = $container.querySelectorAll(".text");
+
+	//pasar de tipo NodeElement a list
+	const $elementosItemList = Array.from($elementosItem);
+	const $todosLosParrafosList = { ...$todosLosParrafos };
+	const $textosEnContainerList =
+		// QuerySelector con atributos
+		// const $elementoConId2 = document.querySelector('[data-id="2"]');
+		// const $elementoEspecial = document.querySelector(".item.especial"); //Combinando clases
+
+		// Evento click
+		$miBoton.addEventListener("click", () => {
+			miParrafo.textContent = "¡El párrafo ha cambiado gracias al evento!";
+		});
+
+	//Imprimir en consola algunos ejemplos
+	// console.log("Mi boton:", $miBoton);
+	// console.log("Primer item:", $primerItem);
+	// console.log("Parrafo en Container:", $parrafoEnContainer);
+	// console.log("Elemento con ID 2:", $elementoConId2);
+
+	/* ------------ EVENTOS DE INPUT ------------ */
+
+	/* ------------ LISTENERS DE INPUT ------------ */
+
+	const $nameInput = document.querySelector("#nameInput");
+	console.log($nameInput);
+	
+
+	// Define una función que será el manejador del evento 'input'.
+	// La función es una función flecha que recibe el objeto del evento.
+	const eventInput = (event) => {
+		// Obtiene el elemento que disparó el evento (el input en este caso).
+		// Se usa 'as HTMLInputElement' para decirle a TypeScript que trate 'event.target'
+		// como un elemento input HTML, dándonos acceso a propiedades como 'value'.
+		const target = event.target as HTMLInputElement;
+
+		// Imprime el valor actual del elemento input en la consola cada vez que el valor cambia.
+		console.log(target.value);
+	};
+	// } ; // <-- Cierre de la función (omitido por brevedad)
+
+	// Selecciona un elemento HTML (asumiendo que $nameInput es una referencia a un input).
+	// Añade el manejador de eventos 'eventInput' al evento 'input'.
+	// Esto significa que cada vez que el contenido del input cambie, se ejecutará la función 'eventInput'.
+	$nameInput.addEventListener("input", eventInput);
+
+	
+
+
+	// Selecciona el mismo elemento HTML.
+	// Remueve el manejador de eventos 'eventInput' del evento 'input'.
+	// Esto detiene la ejecución de la función 'eventInput' cuando el contenido del input cambia.
+	// Es importante pasar la misma función de referencia que se usó en addEventListener para que funcione la remoción.
+	// $nameInput.removeEventListener("input", eventInput);
+</script>
